@@ -1,7 +1,6 @@
 import { existsSync, readdirSync } from 'fs';
 import { Project } from 'ts-morph';
 import { join as joinPath } from 'path';
-
 const noValidationFields = ['id', 'createdAt', 'updatedAt'];
 const emptyState = {
   prismaFields: [],
@@ -42,7 +41,12 @@ export const prismaGenerateFields = (
       .filter((prop) => !noValidationFields.includes(prop.getName()))
       .map((prop) => {
         const name = prop.getName();
-        const isOptional = prop.getTypeAtLocation(interfaceALias!).isNullable();
+        const declarations = prop.getDeclarations();
+        const isOptional =
+          prop.getTypeAtLocation(interfaceALias!).isNullable() ||
+          declarations.some((declaration) =>
+            declaration.getText().includes(`null`),
+          );
         let type = prop
           .getTypeAtLocation(interfaceALias!)
           .getNonNullableType()
@@ -120,7 +124,7 @@ export const prismaGenerateFields = (
   };
 };
 
-function resolvePrismaPath(): string {
+const resolvePrismaPath = (): string => {
   let basePath: string;
   basePath = './node_modules';
   basePath = joinPath(
@@ -146,4 +150,4 @@ function resolvePrismaPath(): string {
   }
   basePath = joinPath(process.cwd(), basePath, '.prisma/client/index.d.ts');
   return basePath;
-}
+};
