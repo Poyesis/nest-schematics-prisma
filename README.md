@@ -12,7 +12,7 @@
 
 `nest-schematics-prisma` extends the NestJS CLI with support for Prisma, adding CRUD operations and validation using either [Zod](https://github.com/colinhacks/zod) or [class-transformer](https://github.com/typestack/class-transformer). This package simplifies the setup of Prisma in NestJS projects and provides robust validation options out of the box.
 
-This package was created by **Mahdi Al Komaiha** based on the original package made by Nest team and tested by [**Abed Al Ghani Shaaban**](https://github.com/abedshaaban).
+This package was created by **Mahdi Al Komaiha** based on the original package made by Nest team and tested by [**Abed Al Ghani Mosbah Shaaban**](https://github.com/abedshaaban).
 
 ## Features
 
