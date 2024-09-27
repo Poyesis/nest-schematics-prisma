@@ -1,4 +1,4 @@
-<img src="./assets/hero.png" width="100%" alt="NestJS feature Poyesis" />
+<img src="./assets/hero.png" width="100%" alt="NestJS features Poyesis" />
 
 <p align="center">An innovative version of <a href="https://www.npmjs.com/package/@nestjs/schematics">@nestjs/schematics</a> built by <a href="https://github.com/mahdi-ko">Mahdi KO</a> and contributed by the <a href="https://poyesis.fr/en/team">Poyesis Team</a>.</p>
 
